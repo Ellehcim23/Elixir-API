@@ -16,15 +16,15 @@ function createRandomUser() {
     //split the faker email
     // let emailSplit = faker.internet.email().split('@');
     // let email = firstName + '.' + lastName + '@' + emailSplit[1];
-    let email = `${fullName}@${faker.internet.email().split('@')[1]}`;
-    console.log(email);
+    // let email = faker.internet.email();
+    // console.log(email);
 
     return {
         fullName: fullName,
-        email: email,
-        username: 'fakerPerson1',
+        email: faker.internet.email(),
+        username: 'fakerson1',
         birthdate: faker.date.birthdate(),
-        location: "New York",
+        location: "LA",
         avatar: faker.image.avatar()
 
     };
