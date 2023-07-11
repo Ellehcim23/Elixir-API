@@ -1,4 +1,4 @@
-// environment vairables 
+// environment variables 
 require('dotenv').config();
 const { faker } = require('@faker-js/faker');
 const mongoose = require('mongoose');
@@ -8,8 +8,9 @@ const { createRandomUser, createRandomRecipe, createRandomIngredient } = require
 const { User, Recipe, Ingredient } = require('./models')
 
 
-console.log('Mongo URI =>', process.env.MONGO_URI);
-console.log('API key', process.env.API_KEY);
+// console.log('Mongo URI =>', process.env.MONGO_URI);
+// console.log('API key', process.env.API_KEY);
+
 // connect to the database
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -81,6 +82,9 @@ db.on('error', (err)=> {
 // })
 // .catch (error => console.log('error', error))
 
-
-
-
+// Ingredient.find({})
+// .then(ingredients => {
+//     ingredients.forEach(ingredient => {
+//         console.log(`${ingredient._id} => ${ingredient.name}`);
+//     })
+// })

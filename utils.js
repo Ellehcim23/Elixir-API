@@ -11,20 +11,19 @@ function parseValue(value) {
     return parsedValue;
 }
 
-function createRandomUser() {
-    let fullName = faker.person.fullName();
-    //split the faker email
-    // let emailSplit = faker.internet.email().split('@');
-    // let email = firstName + '.' + lastName + '@' + emailSplit[1];
-    // let email = faker.internet.email();
-    // console.log(email);
+function wait(time) {
+    return new Promise(resolve => {
+        setTimeout(resolve, time);
+    });
+}
 
+function createRandomUser() {
     return {
-        fullName: fullName,
+        fullName: faker.person.fullName(),
         email: faker.internet.email(),
-        username: 'fakerson1',
+        username: faker.internet.displayName(),
         birthdate: faker.date.birthdate(),
-        location: "LA",
+        location: faker.location.city(),
         avatar: faker.image.avatar()
 
     };
@@ -32,27 +31,28 @@ function createRandomUser() {
 
 function createRandomRecipe() {
     return {
-        name: 'Manhattan',
-        instructions: 'Mix it Mix it Mix',
-        alcholic: true,
-        location: "New York",
+        name: faker.commerce.productName(),
+        instructions: faker.lorem.paragraph(),
+        alcoholic: true,
+        location: faker.location.city(),
         image: faker.image.urlLoremFlickr({ category: 'food' }),
-        glassType: 'shot glass',
-        category: 'cocktail'
+        glassType: faker.lorem.words(2),
+        category: faker.lorem.word()
     };
 }
 
 function createRandomIngredient() {
     return {
-        name: "Whiskey",
-        description: "All scotch is Whiskey",
-        type: "Alcohol??",
-        alcholic: true
+        name: faker.commerce.productName(),
+        description: faker.lorem.sentence(),
+        type: faker.lorem.words(2),
+        alcoholic: true
     }
 }
 
 module.exports = {
     parseValue,
+    wait,
     createRandomUser,
     createRandomRecipe,
     createRandomIngredient
