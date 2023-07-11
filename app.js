@@ -25,8 +25,8 @@ console.log('API key', process.env.API_KEY);
 
 
 app.get('/', (req, res) => {
-    axios.get(`http://www.thecocktaildb.com/api/json/v2/${process.env.API_KEY}/list.php?i=list`)
-    // axios.get(`http://www.thecocktaildb.com/api/json/v2/${process.env.API_KEY}/search.php?s=margarita`)
+    // axios.get(`http://www.thecocktaildb.com/api/json/v2/${process.env.API_KEY}/list.php?i=list`)
+    axios.get(`http://www.thecocktaildb.com/api/json/v2/${process.env.API_KEY}/filter.php?i=Gin`)
     .then(function(response) {
         console.log("Api data here", response.data)
         res.json(response.data)

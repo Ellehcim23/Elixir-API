@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     location: String,
     recipesByUser: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' }],
     commentsByUser: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-    following: Array,
+    following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' }],
     avatar: String
 },{ timestamps:true })
