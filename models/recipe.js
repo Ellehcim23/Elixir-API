@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     name: {type: String, required: true},
     ingredients: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient' }],
+    measures: [String],
     instructions: String,
-    alcholic: {type: Boolean, required: true},
+    alcoholic: {type: Boolean, required: true},
     image: String,
     createdBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     glassType: String,
