@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', require('./controllers/users'));
-// app.use('/ingredients', require('./controllers/ingredients'));
-// app.use('/recipes', require('./controllers/recipes'));
-// app.use('/comments', require('./controllers/comments'));
+app.use('/ingredients', require('./controllers/ingredients'));
+app.use('/recipes', require('./controllers/recipes'));
+app.use('/comments', require('./controllers/comments'));
 
 
 const PORT = process.env.PORT || 8000;
