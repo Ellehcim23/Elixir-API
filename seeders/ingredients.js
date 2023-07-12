@@ -1,14 +1,14 @@
 require('dotenv').config();
 const axios = require('axios');
 const { Ingredient } = require('../models');
-const { wait } = require('../utils');
+const { wait, firstLettersCapitalized } = require('../utils');
 
 // Ingredient.deleteMany({})
 // .then(result => console.log(result));
 
 // Get list of all ingredients names from API
 axios.get(`${process.env.API}/list.php?i=list`)
-.then(async function (response) {
+.then(async response => {
     let numIngredients = response.data.drinks.length;
 
     // For each ingredient name
@@ -19,7 +19,7 @@ axios.get(`${process.env.API}/list.php?i=list`)
             let ingredient = response2.data.ingredients[0];
             // Construct ingredient object
             let newIngredient = {
-                name: ingredient.strIngredient,
+                name: firstLettersCapitalized(ingredient.strIngredient),
                 description: ingredient.strDescription,
                 type: ingredient.strType,
                 alcoholic: ingredient.strAlcohol === 'Yes' ? true : false

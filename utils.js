@@ -11,6 +11,20 @@ function parseValue(value) {
     return parsedValue;
 }
 
+function firstLettersCapitalized(string) {
+    const words = string.split(" ");
+
+    const capitalizedAfterSpaces = words.map((word) => { 
+        return word[0].toUpperCase() + word.substring(1); 
+    }).join(" ");
+
+    const splitAtHyphens = capitalizedAfterSpaces.split("-");
+
+    return splitAtHyphens.map((word) => {
+        return word[0].toUpperCase() + word.substring(1);
+    }).join("-");
+}
+
 function wait(time) {
     return new Promise(resolve => {
         setTimeout(resolve, time);
@@ -53,6 +67,7 @@ function createRandomIngredient() {
 module.exports = {
     parseValue,
     wait,
+    firstLettersCapitalized,
     createRandomUser,
     createRandomRecipe,
     createRandomIngredient

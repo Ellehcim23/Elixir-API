@@ -88,3 +88,12 @@ db.on('error', (err)=> {
 //         console.log(`${ingredient._id} => ${ingredient.name}`);
 //     })
 // })
+
+// Recipe.findOne({})
+// .then(result => console.log(result));
+
+// Recipe.deleteMany({})
+// .then(result => console.log(result));
+
+// Ingredient.deleteMany({})
+// .then(result => console.log(result));
